@@ -23,10 +23,8 @@ router.post("/", async (req, res) => {
 });
 
 router.get("/profile", async (req, res) => {
-  try {
+  if (req.session.userId) {
     res.json(req.currentUser);
-  } catch {
-    res.json(null);
   }
 });
 
